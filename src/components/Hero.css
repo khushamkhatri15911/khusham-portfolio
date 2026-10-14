@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap");
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 110px 24px 60px;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+.hero-label {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  margin: 0;
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.hero-headline {
+  margin: 14px 0 0;
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.15rem, 2.6vw, 1.55rem);
+  color: var(--muted);
+}
+.hero-blurb {
+  max-width: 44rem;
+  margin: 26px 0 0;
+  color: var(--muted);
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: filter 0.15s, background 0.15s, color 0.15s;
+}
+.hero-btn.primary { background: #4f6bff; color: #fff; }
+.hero-btn.primary:hover { filter: brightness(1.12); }
+.hero-btn.outline { border-color: var(--text); color: var(--text); background: transparent; }
+.hero-btn.outline:hover { background: var(--text); color: var(--bg); }
+.hero-btn:focus-visible, .hero-meta a:focus-visible { outline: 2px solid #4f6bff; outline-offset: 3px; }
+
+.hero-meta { display: flex; align-items: center; gap: 22px; margin-top: 40px; color: var(--muted); }
+.hero-location { display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; }
+.hero-divider { width: 1px; height: 24px; background: var(--pill-border); }
+.hero-meta a { color: var(--muted); display: inline-flex; transition: color 0.15s; }
+.hero-meta a:hover { color: var(--text); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-btn, .hero-meta a { transition: none; }
+}

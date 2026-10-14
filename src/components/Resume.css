@@ -1,0 +1,57 @@
+.resume { padding: 110px 24px; scroll-margin-top: 70px; }
+.resume-inner { max-width: 1200px; margin: 0 auto; }
+
+.resume-card {
+  max-width: 720px;
+  margin: 70px auto 0;
+  padding: 56px 40px;
+  text-align: center;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+.resume-icon {
+  width: 96px; height: 96px;
+  margin: 0 auto 28px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(79, 107, 255, 0.14);
+  color: #4f6bff;
+}
+.resume-card h3 {
+  margin: 0 0 14px;
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+.resume-card p {
+  max-width: 34rem;
+  margin: 0 auto 34px;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+.resume-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.resume-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: filter 0.15s, background 0.15s, color 0.15s;
+}
+.resume-btn.primary { background: #4f6bff; color: #fff; }
+.resume-btn.primary:hover { filter: brightness(1.12); }
+.resume-btn.outline { border-color: var(--text); color: var(--text); }
+.resume-btn.outline:hover { background: var(--text); color: var(--bg); }
+.resume-btn:focus-visible { outline: 2px solid #4f6bff; outline-offset: 3px; }
+
+@media (max-width: 600px) {
+  .resume-card { padding: 40px 22px; margin-top: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .resume-btn { transition: none; }
+}

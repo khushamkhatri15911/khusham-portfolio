@@ -1,0 +1,21 @@
+.section-heading h2 {
+  margin: 0;
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.section-heading p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 1.4rem;
+}
+.section-bar {
+  display: block;
+  width: 100px;
+  height: 4px;
+  margin-top: 28px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--grad-from), var(--grad-to));
+}

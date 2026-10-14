@@ -1,0 +1,129 @@
+.projects { padding: 110px 0; scroll-margin-top: 70px; --card-w: min(440px, 82vw); }
+.projects-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Carousel: a sideways-scrolling row where the chosen card snaps to the center. */
+.carousel { margin-top: 60px; }
+.carousel-track {
+  position: relative; /* lets the script measure card positions */
+  display: flex;
+  gap: 24px;
+  padding: 16px calc(50% - var(--card-w) / 2);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track:focus-visible { outline: 2px solid #4f6bff; outline-offset: -2px; border-radius: 24px; }
+
+.project-card {
+  flex: 0 0 var(--card-w);
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  border-radius: 24px;
+  opacity: 0.45;
+  transform: scale(0.95);
+  transition: opacity 0.3s, transform 0.3s, border-color 0.3s;
+}
+.project-card.active { opacity: 1; transform: scale(1); border-color: var(--grad-from); }
+
+.project-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.project-head h4 {
+  margin: 0;
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.project-date {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  background: var(--hover-bg);
+  color: var(--muted);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.project-desc { margin: 14px 0 0; color: var(--muted); font-size: 1.05rem; line-height: 1.65; }
+
+.ptags { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.ptags li {
+  padding: 5px 11px;
+  background: rgba(79, 107, 255, 0.14);
+  color: #8496ff;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+:root[data-theme="light"] .ptags li { color: #3448d1; background: rgba(79, 107, 255, 0.12); }
+
+.project-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; padding-top: 24px; }
+.project-links::before {
+  content: "";
+  flex-basis: 100%;
+  height: 1px;
+  background: var(--pill-border);
+  margin-bottom: 4px;
+}
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border: 1.5px solid var(--text);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.project-links a:hover { background: var(--text); color: var(--bg); }
+.project-links a:focus-visible { outline: 2px solid #4f6bff; outline-offset: 3px; }
+
+/* Arrows and dots under the cards */
+.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 28px; }
+
+.arrow {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: var(--pill-bg);
+  border: 1.5px solid var(--pill-border);
+  border-radius: 50%;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.arrow:hover:not(:disabled) { border-color: var(--grad-from); background: var(--hover-bg); }
+.arrow:disabled { opacity: 0.35; cursor: default; }
+.arrow:focus-visible, .dot:focus-visible { outline: 2px solid #4f6bff; outline-offset: 3px; }
+
+.dots { display: flex; align-items: center; gap: 2px; }
+.dot {
+  padding: 8px 5px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.dot::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--pill-border);
+  transition: width 0.25s, background 0.25s;
+}
+.dot.on::before { width: 24px; background: linear-gradient(90deg, var(--grad-from), var(--grad-to)); }
+
+@media (max-width: 480px) {
+  .project-card { padding: 24px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-card, .project-links a, .arrow, .dot::before { transition: none; }
+}
